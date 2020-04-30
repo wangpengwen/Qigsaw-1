@@ -1,9 +1,5 @@
 apply plugin: 'com.android.application'
-if (sample) {
-    apply plugin: 'com.iqiyi.qigsaw.sample.application'
-} else {
-    apply plugin: 'com.iqiyi.qigsaw.application'
-}
+apply plugin: 'com.iqiyi.qigsaw.application'
 
 android {
     compileSdkVersion versions.compileSdk
@@ -98,32 +94,14 @@ qigsawSplit {
 
 }
 
-if (sample) {
-
-    splitUpload {
-
-        /**
-         * Whether upload all split apks to test env
-         */
-        useTestEnv = true
-
-        /**
-         * You can decide which split apks should be upload to test env.
-         */
-        testOnly = ["java"]
-    }
-
-}
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    if (sample) {
-        api "com.iqiyi.android.qigsaw:splitcore:${VERSION_NAME}"
-    } else {
-        api project(':splitcore')
-    }
+
+//    api "com.iqiyi.android.qigsaw:splitcore:${VERSION_NAME}"
+    api project(':splitcore')
+
     implementation project(':downloader')
 }

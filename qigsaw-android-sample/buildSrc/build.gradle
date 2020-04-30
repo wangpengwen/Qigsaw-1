@@ -7,18 +7,22 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.0'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
     }
 }
+
 applyRootProjectProperties()
+
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+
     implementation "com.android.tools.build:gradle:${AGP_VERSION}"
-    implementation "com.iqiyi.android.qigsaw:gradle-plugin:${VERSION_NAME}"
-    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
-    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+
+    implementation 'com.squareup.okhttp3:okhttp:3.14.7'
+    implementation 'com.squareup.retrofit2:retrofit:2.7.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.2'
     implementation 'com.squareup.retrofit2:adapter-rxjava:2.4.0'
+
     implementation gradleApi()
 }
 
