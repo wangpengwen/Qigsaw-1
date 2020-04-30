@@ -1,7 +1,3 @@
-//
-// Created by kissonchen on 2018/11/22.
-//
-
 #include <string.h>
 #include <jni.h>
 
@@ -12,8 +8,10 @@
  *   app/src/main/java/com/example/kotlin/KotlinJni.kt
  */
 JNIEXPORT jstring JNICALL
-Java_com_iqiyi_qigsaw_sample_ccode_NativeSampleActivity_stringFromJNI(JNIEnv *env,
-                                                                      jobject thiz) {
+Java_com_iqiyi_qigsaw_sample_ccode_NativeSampleActivity_stringFromJNI(
+        JNIEnv *env,
+        jobject thiz
+) {
 #if defined(__arm__)
 #if defined(__ARM_ARCH_7A__)
 #if defined(__ARM_NEON__)
@@ -46,5 +44,5 @@ Java_com_iqiyi_qigsaw_sample_ccode_NativeSampleActivity_stringFromJNI(JNIEnv *en
 #define ABI "unknown"
 #endif
 
-    return (*env)->NewStringUTF(env, "Hello from JNI!\nCompiled with ABI " ABI ".");
+    return (*env)->NewStringUTF(env, "Hello from JNI!\n\nCompiled with ABI " ABI ".");
 }
